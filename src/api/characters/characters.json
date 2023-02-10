@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Timmy Turner",
+    "show": "The Fairy OddParents",
+    "image": "assets/img/Timmy_Turner.png",
+    "bgColor": "bg-pink-600",
+    "properties": {
+      "Hair": ["Brown"],
+      "Main Garment Color": ["Pink"]
+    }
+  },
+  {
+    "name": "Peppa Pig",
+    "show": "Peppa",
+    "image": "assets/img/Peppa_Pig.png",
+    "bgColor": "bg-rose-600",
+    "properties": {
+      "Hair": ["None"],
+      "Main Garment Color": ["Red"]
+    }
+  },
+  {
+    "name": "Shaggy Rogers",
+    "show": "Scooby Doo",
+    "image": "assets/img/Shaggy_Rogers.png",
+    "bgColor": "bg-lime-600",
+    "properties": {
+      "Hair": ["Blonde"],
+      "Main Garment Color": ["Green"]
+    }
+  },
+  {
+    "name": "Jhonny Bravo",
+    "show": "Jhonny Bravo",
+    "image": "assets/img/Jhonny_Bravo.png",
+    "bgColor": "bg-black",
+    "properties": {
+      "Hair": ["Blonde"],
+      "Main Garment Color": ["Black"]
+    }
+  },
+  {
+    "name": "Phineas Flynn",
+    "show": "Phineas and Ferb",
+    "image": "assets/img/Phineas_Flynn.png",
+    "bgColor": "bg-orange-600",
+    "properties": {
+      "Hair": ["Red"],
+      "Main Garment Color": ["Stripped orange"]
+    }
+  },
+  {
+    "name": "Eric Cartman",
+    "show": "South Park",
+    "image": "assets/img/Eric_Cartman.png",
+    "bgColor": "bg-cyan-500",
+    "properties": {
+      "Hair": ["None"],
+      "Main Garment Color": ["Red"]
+    }
+  },
+  {
+    "name": "Morty Smith",
+    "show": "Rick and Morty",
+    "image": "assets/img/Morty_Smith.png",
+    "bgColor": "bg-yellow-500",
+    "properties": {
+      "Hair": ["Brown"],
+      "Main Garment Color": ["Yellow"]
+    }
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Hair",
+    "options": ["Blonde", "Brown"]
+  },
+  {
+    "name": "Skin",
+    "options": ["White", "Dark"]
+  }
+]
