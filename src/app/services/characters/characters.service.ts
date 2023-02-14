@@ -16,42 +16,36 @@ export class CharactersService {
     const filtersParams = this.mapFiltersSelectionToParams(filtersSelection);
 
     return this.http
-      .get<Character[]>('api/characters/characters.json', {
+      .get<Character[]>('api/characters/characters2.json', {
         params: filtersParams,
       })
       .pipe(
-        delay(Math.floor(Math.random() * (1000 - 0 + 1) + 0)),
         // TODO: Move filtering logic to backend
+        delay(Math.floor(Math.random() * (1000 - 0 + 1) + 0)),
         mergeMap((characters) =>
           iif(
             () => Object.keys(filtersParams).length > 0,
             of(characters).pipe(
-              map((characters) =>
-                characters.filter((c) => {
-                  for (const property in c.properties) {
-                    const propertyHasToBeFiltered =
-                      Object.keys(filtersParams).includes(property);
+              map((characters) => {
+                return characters.filter((c) => {
+                  for (const [filterName, filterOptions] of Object.entries(
+                    filtersParams
+                  )) {
+                    const characterOptionsForFilter = c.properties[filterName];
 
-                    if (propertyHasToBeFiltered) {
-                      const filterOptions = filtersParams[property];
-                      const propertyOptions = c.properties[property];
+                    // TODO: See if we want to keep excluding (or not) the characters that don't have a property to filter
+                    if (!characterOptionsForFilter) return false;
 
-                      const filterAndPropertyOptionsIntersection =
-                        filterOptions.filter((fo) =>
-                          propertyOptions.includes(fo)
-                        );
-                      const propertyMeetsFilter =
-                        filterAndPropertyOptionsIntersection.length > 0;
+                    const propertyMeetsFilter = characterOptionsForFilter.some(
+                      (po) => filterOptions.includes(po)
+                    );
 
-                      if (!propertyMeetsFilter) {
-                        return false;
-                      }
-                    }
+                    if (!propertyMeetsFilter) return false;
                   }
 
                   return true;
-                })
-              )
+                });
+              })
             ),
             of(characters)
           )
