@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "*.scss": "tailwindcss"
+        "*.scss": "scss"
     },
     "editor.wordWrap": "on",
     "editor.formatOnSave": true

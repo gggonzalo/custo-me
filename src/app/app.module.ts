@@ -8,6 +8,7 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { CheckOptionComponent } from './check-option/check-option.component';
 import { FiltersModalComponent } from './filters-modal/filters-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FiltersSidebarComponent } from './filters-sidebar/filters-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CheckboxComponent,
     CheckOptionComponent,
     FiltersModalComponent,
+    FiltersSidebarComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   bootstrap: [AppComponent],

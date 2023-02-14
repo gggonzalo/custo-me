@@ -60,6 +60,16 @@
     }
   },
   {
+    "name": "T.J Detweiler",
+    "show": "Recess",
+    "image": "assets/img/TJ_Detweiler.png",
+    "bgColor": "bg-emerald-800",
+    "properties": {
+      "Hair": ["Brown"],
+      "Main Garment Color": ["Green"]
+    }
+  },
+  {
     "name": "Morty Smith",
     "show": "Rick and Morty",
     "image": "assets/img/Morty_Smith.png",
@@ -67,6 +77,26 @@
     "properties": {
       "Hair": ["Brown"],
       "Main Garment Color": ["Yellow"]
+    }
+  },
+  {
+    "name": "Kuki Sanban",
+    "show": "Codename: Kids Next Door",
+    "image": "assets/img/Kuki_Sanban.png",
+    "bgColor": "bg-green-700",
+    "properties": {
+      "Hair": ["Black"],
+      "Main Garment Color": ["Green"]
+    }
+  },
+  {
+    "name": "Kim Possible",
+    "show": "Kim Possible",
+    "image": "assets/img/Kim_Possible.png",
+    "bgColor": "bg-black",
+    "properties": {
+      "Hair": ["Red"],
+      "Main Garment Color": ["Black"]
     }
   }
 ]

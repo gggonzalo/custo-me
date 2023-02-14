@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Filter, FiltersSelection } from '../models/Filters';
+import { Filter, FiltersFormValue, FiltersSelection } from '../models/Filters';
 
 @Component({
   selector: 'app-filters-modal',
@@ -26,7 +26,7 @@ export class FiltersModalComponent implements OnInit {
   @Output()
   onHide = new EventEmitter();
   @Output()
-  onFiltersSelected = new EventEmitter<FiltersSelection>();
+  onFiltersSelected = new EventEmitter<FiltersFormValue>();
 
   filtersForm!: FormGroup;
   filtersSelectionSinceOpen: FiltersSelection = {};
@@ -34,7 +34,7 @@ export class FiltersModalComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   handleFiltersFormSubmit(): void {
-    this.onFiltersSelected.emit(this.filtersForm.value as FiltersSelection);
+    this.onFiltersSelected.emit(this.filtersForm.value as FiltersFormValue);
 
     this.onHide.emit();
   }

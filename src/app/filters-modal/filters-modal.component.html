@@ -15,9 +15,13 @@
             <app-check-option
               [groupName]="filter.name"
               [controlName]="option.name"
-              [name]="option.name"
-              [count]="option.count"
-            ></app-check-option>
+            >
+              <div class="flex items-center checkbox-label">
+                <span>{{ option.name }}</span>
+                &nbsp;
+                <span class="text-sm">({{ option.count }})</span>
+              </div>
+            </app-check-option>
           </div>
         </div>
       </div>

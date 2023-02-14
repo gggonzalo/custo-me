@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   ControlContainer,
   FormGroup,
@@ -16,11 +16,9 @@ import {
     },
   ],
 })
-export class CheckOptionComponent {
+export class CheckOptionComponent implements OnInit {
   @Input() groupName!: string;
   @Input() controlName!: string;
-  @Input() name!: string;
-  @Input() count!: number;
 
   parentFormGroup!: FormGroup;
 

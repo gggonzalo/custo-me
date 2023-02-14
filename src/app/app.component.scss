@@ -1,0 +1,66 @@
+$background-image-size: 8rem;
+$second-background-image-offset: calc($background-image-size / 2);
+
+#animated-background {
+  background-image: url("/assets/svg/background_ghost.svg"),
+    url("/assets/svg/background_ghost.svg");
+  background-position: 0 0,
+    $second-background-image-offset $second-background-image-offset;
+  background-repeat: repeat, repeat;
+  background-size: $background-image-size;
+  background-attachment: fixed;
+  animation: animatedBackground 5s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0,
+      $second-background-image-offset $second-background-image-offset;
+  }
+  to {
+    background-position: (-$background-image-size) (-$background-image-size),
+      ($second-background-image-offset + (-$background-image-size))
+        ($second-background-image-offset + (-$background-image-size));
+  }
+}
+
+$sidebar-slide-duration: 1s;
+
+#sidebar-container {
+  animation: $sidebar-slide-duration ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translate(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#characters-container {
+  animation: waitFadeIn $sidebar-slide-duration,
+    fadeIn 1s $sidebar-slide-duration;
+}
+
+@keyframes waitFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -38,11 +38,7 @@
           ></path>
         </g>
       </svg>
-      <div class="flex items-center">
-        <span>{{ name }}</span>
-        &nbsp;
-        <span class="text-sm">({{ count }})</span>
-      </div>
+      <ng-content select=".checkbox-label"> </ng-content>
     </span>
   </label>
 </form>

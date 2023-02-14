@@ -1,18 +1,25 @@
-<label class="inline-flex items-center cursor-pointer mb-1">
-  <input type="checkbox" class="peer" (change)="toggleChecked()" />
-  <svg
-    class="transition bg-white peer-checked:bg-purple-600 border-2 border-purple-200 peer-checked:border-purple-600 w-5 h-5 rounded-lg mr-2"
-    aria-hidden="true"
-    viewBox="0 0 12 10"
-    fill="none"
-  >
-    <polyline
-      points="1.5 6 4.5 9 10.5 1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      [attr.stroke]="isChecked ? '#fff' : 'none'"
-    ></polyline>
-  </svg>
-  <span>{{ name }}</span>
-</label>
+<form [formGroup]="parentFormGroup">
+  <label class="flex items-center cursor-pointer">
+    <input
+      type="checkbox"
+      class="peer"
+      [formControlName]="controlName"
+      #checkbox
+    />
+    <svg
+      class="shrink-0 transition peer-checked:bg-purple-600 border-2 border-purple-300 peer-checked:border-purple-600 w-4 h-4 rounded mr-1.5"
+      aria-hidden="true"
+      viewBox="0 0 12 10"
+      fill="none"
+    >
+      <polyline
+        points="1.5 6 4.5 9 10.5 1"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        [attr.stroke]="checkbox.checked ? '#fff' : 'none'"
+      ></polyline>
+    </svg>
+    <ng-content select=".checkbox-label"></ng-content>
+  </label>
+</form>
