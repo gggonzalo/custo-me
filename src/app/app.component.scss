@@ -41,8 +41,7 @@ $sidebar-slide-duration: 1s;
 }
 
 #characters-container {
-  animation: waitFadeIn $sidebar-slide-duration linear 0s,
-    fadeIn 1s linear $sidebar-slide-duration;
+  animation: waitFadeIn $sidebar-slide-duration ease-out 0s, fadeIn 1s ease-out $sidebar-slide-duration;
 }
 
 @keyframes waitFadeIn {
