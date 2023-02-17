@@ -2,7 +2,7 @@
   {
     "name": "Timmy Turner",
     "show": "The Fairy OddParents",
-    "image": "assets/img/Timmy_Turner.png",
+    "image": "assets/img/characters/Timmy_Turner.png",
     "bgColor": "bg-pink-600",
     "properties": {
       "Hair": ["Brown"],
@@ -12,7 +12,7 @@
   {
     "name": "Peppa Pig",
     "show": "Peppa",
-    "image": "assets/img/Peppa_Pig.png",
+    "image": "assets/img/characters/Peppa_Pig.png",
     "bgColor": "bg-rose-600",
     "properties": {
       "Hair": ["None"],
@@ -22,7 +22,7 @@
   {
     "name": "Shaggy Rogers",
     "show": "Scooby Doo",
-    "image": "assets/img/Shaggy_Rogers.png",
+    "image": "assets/img/characters/Shaggy_Rogers.png",
     "bgColor": "bg-lime-600",
     "properties": {
       "Hair": ["Blonde"],
@@ -32,7 +32,7 @@
   {
     "name": "Jhonny Bravo",
     "show": "Jhonny Bravo",
-    "image": "assets/img/Jhonny_Bravo.png",
+    "image": "assets/img/characters/Jhonny_Bravo.png",
     "bgColor": "bg-black",
     "properties": {
       "Hair": ["Blonde"],
@@ -42,7 +42,7 @@
   {
     "name": "Phineas Flynn",
     "show": "Phineas and Ferb",
-    "image": "assets/img/Phineas_Flynn.png",
+    "image": "assets/img/characters/Phineas_Flynn.png",
     "bgColor": "bg-orange-600",
     "properties": {
       "Hair": ["Red"],
@@ -52,7 +52,7 @@
   {
     "name": "Eric Cartman",
     "show": "South Park",
-    "image": "assets/img/Eric_Cartman.png",
+    "image": "assets/img/characters/Eric_Cartman.png",
     "bgColor": "bg-cyan-500",
     "properties": {
       "Hair": ["None"],
@@ -62,7 +62,7 @@
   {
     "name": "T.J Detweiler",
     "show": "Recess",
-    "image": "assets/img/TJ_Detweiler.png",
+    "image": "assets/img/characters/TJ_Detweiler.png",
     "bgColor": "bg-emerald-800",
     "properties": {
       "Hair": ["Brown"],
@@ -72,7 +72,7 @@
   {
     "name": "Morty Smith",
     "show": "Rick and Morty",
-    "image": "assets/img/Morty_Smith.png",
+    "image": "assets/img/characters/Morty_Smith.png",
     "bgColor": "bg-yellow-500",
     "properties": {
       "Hair": ["Brown"],
@@ -82,7 +82,7 @@
   {
     "name": "Kuki Sanban",
     "show": "Codename: Kids Next Door",
-    "image": "assets/img/Kuki_Sanban.png",
+    "image": "assets/img/characters/Kuki_Sanban.png",
     "bgColor": "bg-green-700",
     "properties": {
       "Hair": ["Black"],
@@ -92,7 +92,7 @@
   {
     "name": "Kim Possible",
     "show": "Kim Possible",
-    "image": "assets/img/Kim_Possible.png",
+    "image": "assets/img/characters/Kim_Possible.png",
     "bgColor": "bg-black",
     "properties": {
       "Hair": ["Red"],

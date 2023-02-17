@@ -61,8 +61,9 @@
   </div>
   <div class="flex border-t-2 border-t-purple-200 p-2">
     <button
-      class="grow transition bg-purple-600 hover:bg-purple-700 text-center text-white rounded-xl p-2"
+      class="grow transition bg-purple-600 enabled:hover:bg-purple-700 disabled:opacity-75 text-center text-white rounded-xl p-2"
       type="submit"
+      [disabled]="!(canSubmitFormCheckTask | async)"
     >
       Apply
     </button>

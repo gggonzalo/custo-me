@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { BehaviorSubject, merge, Observable, of, switchMap, tap } from 'rxjs';
 import { Filter, FiltersFormValue, FiltersSelection } from '../models/Filters';
 
 @Component({
@@ -7,45 +8,35 @@ import { Filter, FiltersFormValue, FiltersSelection } from '../models/Filters';
   templateUrl: './filters-sidebar.component.html',
   styleUrls: ['./filters-sidebar.component.scss'],
 })
+// TODO: Change name to FiltersForm
 export class FiltersSidebarComponent implements OnInit {
   @Input() filters!: Filter[];
-  private _isOpen!: boolean;
-  @Input()
-  set isOpen(value: boolean) {
-    this._isOpen = value;
+  public isOpen!: boolean;
 
-    document.body.style.overflow = value ? 'hidden' : 'auto';
-    this.filtersSelectionSinceApply = this.filtersForm
-      ? this.filtersForm.value
-      : {};
-  }
-  get isOpen(): boolean {
-    return this._isOpen;
-  }
-
+  // TODO: See if we still need this. Maybe in the mobile layout
   @Output() onHide = new EventEmitter();
   @Output() onFiltersSelected = new EventEmitter<FiltersFormValue>();
 
   filtersForm!: FormGroup;
-  filtersSelectionSinceApply: FiltersSelection = {};
+  valueSinceLastSubmit!: FiltersFormValue;
+  reportSubmitToken$ = new BehaviorSubject<null>(null);
+  canSubmitFormCheckTask!: Observable<boolean>;
 
   constructor(private fb: FormBuilder) {}
 
   handleFiltersFormSubmit(): void {
     this.onFiltersSelected.emit(this.filtersForm.value);
-
     this.onHide.emit();
+
+    this.reportSubmitToken$.next(null);
   }
 
-  // TODO: Remove
+  // TODO: Remove. Maybe use for mobile sidebar/modal
   handleCancel() {
-    this.filtersForm.setValue(this.filtersSelectionSinceApply);
-
     this.onHide.emit();
   }
 
   ngOnInit(): void {
-    // TODO: Maybe store this form state in localstorage
     this.filtersForm = this.fb.group({
       filteringOptions: this.fb.group({
         mutuallyInclusiveFilters: false,
@@ -58,6 +49,7 @@ export class FiltersSidebarComponent implements OnInit {
               this.fb.group(
                 Object.fromEntries(
                   f.options.map((o) => {
+                    // TODO: Maybe store the form values in local storage. Something like: [o.name, localStorage.get(o.name) || false]
                     return [o.name, false];
                   })
                 )
@@ -68,33 +60,56 @@ export class FiltersSidebarComponent implements OnInit {
       ),
     });
 
-    this.filtersForm.controls['filteringOptions'].valueChanges.subscribe(
-      (_) => {
-        const filtersSelectionFormGroup = this.filtersForm.controls[
-          'filtersSelection'
-        ] as FormGroup;
+    // Add validation and disable/re-enable on ['filteringOptions']['mutuallyInclusiveFilters']
 
-        for (const filterFormGroup of Object.values(
-          filtersSelectionFormGroup.controls
-        )) {
-          const filterOptionsFormGroup = (filterFormGroup as FormGroup)
-            .controls;
-
-          const atLeastOneFilterOptionsIsSelected = Object.values(
-            filterOptionsFormGroup
-          )
-            .map((optionFormControl) => optionFormControl.value)
-            .some(
-              (optionFormControlValue: boolean) =>
-                optionFormControlValue === true
-            );
-
-          if (atLeastOneFilterOptionsIsSelected) {
-            // TODO: Also check filters form is different since last submit
-            this.onFiltersSelected.emit(this.filtersForm.value);
+    this.canSubmitFormCheckTask = merge(
+      this.reportSubmitToken$.pipe(
+        tap(() => {
+          this.valueSinceLastSubmit = this.filtersForm.value;
+        }),
+        switchMap(() => of(false))
+      ),
+      this.filtersForm.valueChanges.pipe(
+        switchMap((currentValue) => {
+          // Check if at least one filtering option selection control has changed
+          if (
+            currentValue['filteringOptions']['mutuallyInclusiveFilters'] !==
+            this.valueSinceLastSubmit['filteringOptions'][
+              'mutuallyInclusiveFilters'
+            ]
+          ) {
+            return of(true);
           }
-        }
-      }
+
+          // Check if at least one filter selection control has changed
+          const filtersSelectionFormGroup = this.filtersForm.controls[
+            'filtersSelection'
+          ] as FormGroup;
+
+          for (const [filterFormGroupName, filterFormGroup] of Object.entries(
+            filtersSelectionFormGroup.controls
+          )) {
+            for (const filterOptionFormControlName of Object.keys(
+              (filterFormGroup as FormGroup).controls
+            )) {
+              if (
+                currentValue['filtersSelection'][filterFormGroupName][
+                  filterOptionFormControlName
+                ] !==
+                this.valueSinceLastSubmit['filtersSelection'][
+                  filterFormGroupName
+                ][filterOptionFormControlName]
+              ) {
+                return of(true);
+              }
+            }
+          }
+
+          return of(false);
+        })
+      )
     );
+
+    this.canSubmitFormCheckTask.subscribe(console.log);
   }
 }
