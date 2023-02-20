@@ -4,99 +4,99 @@
     "show": "The Fairy OddParents",
     "image": "assets/img/characters/Timmy_Turner.png",
     "bgColor": "bg-pink-600",
-    "properties": {
-      "Hair": ["Brown"],
-      "Main Garment Color": ["Pink"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Brown" },
+      { "name": "Main Garment Color", "value": "Pink" }
+    ]
   },
   {
     "name": "Peppa Pig",
     "show": "Peppa",
     "image": "assets/img/characters/Peppa_Pig.png",
     "bgColor": "bg-rose-600",
-    "properties": {
-      "Hair": ["None"],
-      "Main Garment Color": ["Red"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "None" },
+      { "name": "Main Garment Color", "value": "Red" }
+    ]
   },
   {
     "name": "Shaggy Rogers",
     "show": "Scooby Doo",
     "image": "assets/img/characters/Shaggy_Rogers.png",
     "bgColor": "bg-lime-600",
-    "properties": {
-      "Hair": ["Blonde"],
-      "Main Garment Color": ["Green"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Blonde" },
+      { "name": "Main Garment Color", "value": "Green" }
+    ]
   },
   {
     "name": "Jhonny Bravo",
     "show": "Jhonny Bravo",
     "image": "assets/img/characters/Jhonny_Bravo.png",
     "bgColor": "bg-black",
-    "properties": {
-      "Hair": ["Blonde"],
-      "Main Garment Color": ["Black"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Blonde" },
+      { "name": "Main Garment Color", "value": "Black" }
+    ]
   },
   {
     "name": "Phineas Flynn",
     "show": "Phineas and Ferb",
     "image": "assets/img/characters/Phineas_Flynn.png",
     "bgColor": "bg-orange-600",
-    "properties": {
-      "Hair": ["Red"],
-      "Main Garment Color": ["Stripped orange"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Red" },
+      { "name": "Main Garment Color", "value": "Stripped orange" }
+    ]
   },
   {
     "name": "Eric Cartman",
     "show": "South Park",
     "image": "assets/img/characters/Eric_Cartman.png",
     "bgColor": "bg-cyan-500",
-    "properties": {
-      "Hair": ["None"],
-      "Main Garment Color": ["Red"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "None" },
+      { "name": "Main Garment Color", "value": "Red" }
+    ]
   },
   {
     "name": "T.J Detweiler",
     "show": "Recess",
     "image": "assets/img/characters/TJ_Detweiler.png",
     "bgColor": "bg-emerald-800",
-    "properties": {
-      "Hair": ["Brown"],
-      "Main Garment Color": ["Green"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Brown" },
+      { "name": "Main Garment Color", "value": "Green" }
+    ]
   },
   {
     "name": "Morty Smith",
     "show": "Rick and Morty",
     "image": "assets/img/characters/Morty_Smith.png",
     "bgColor": "bg-yellow-500",
-    "properties": {
-      "Hair": ["Brown"],
-      "Main Garment Color": ["Yellow"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Brown" },
+      { "name": "Main Garment Color", "value": "Yellow" }
+    ]
   },
   {
     "name": "Kuki Sanban",
     "show": "Codename: Kids Next Door",
     "image": "assets/img/characters/Kuki_Sanban.png",
     "bgColor": "bg-green-700",
-    "properties": {
-      "Hair": ["Black"],
-      "Main Garment Color": ["Green"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Black" },
+      { "name": "Main Garment Color", "value": "Green" }
+    ]
   },
   {
     "name": "Kim Possible",
     "show": "Kim Possible",
     "image": "assets/img/characters/Kim_Possible.png",
     "bgColor": "bg-black",
-    "properties": {
-      "Hair": ["Red"],
-      "Main Garment Color": ["Black"]
-    }
+    "properties": [
+      { "name": "Hair", "value": "Red" },
+      { "name": "Main Garment Color", "value": "Black" }
+    ]
   }
 ]

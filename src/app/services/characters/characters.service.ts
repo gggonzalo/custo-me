@@ -20,13 +20,12 @@ export class CharactersService {
   }: FiltersFormValue): Observable<Character[]> {
     const filtersParams = this.mapFiltersSelectionToParams(filtersSelection);
 
+    // TODO: Store this value in memory once fetched
     return this.http
       .get<Character[]>('api/characters/characters.json', {
         params: filtersParams,
       })
       .pipe(
-        // TODO: Move filtering logic to backend
-        delay(2000),
         mergeMap((characters) =>
           iif(
             () => Object.keys(filtersParams).length > 0,
@@ -36,10 +35,12 @@ export class CharactersService {
                   for (const [filterName, filterOptions] of Object.entries(
                     filtersParams
                   )) {
-                    const characterPropertyOptionsForFilter =
-                      c.properties[filterName];
+                    const characterPropertyOptionsForFilter = c.properties
+                      .filter((p) => p.name === filterName)
+                      .map((p) => p.value);
 
-                    if (!characterPropertyOptionsForFilter) continue;
+                    if (characterPropertyOptionsForFilter.length === 0)
+                      continue;
 
                     const propertyMeetsFilter =
                       characterPropertyOptionsForFilter.some((po) =>
@@ -57,10 +58,12 @@ export class CharactersService {
                   for (const [filterName, filterOptions] of Object.entries(
                     filtersParams
                   )) {
-                    const characterPropertyOptionsForFilter =
-                      c.properties[filterName];
+                    const characterPropertyOptionsForFilter = c.properties
+                      .filter((p) => p.name === filterName)
+                      .map((p) => p.value);
 
-                    if (!characterPropertyOptionsForFilter) continue;
+                    if (characterPropertyOptionsForFilter.length === 0)
+                      continue;
 
                     const propertyMeetsFilter =
                       characterPropertyOptionsForFilter.some((po) =>

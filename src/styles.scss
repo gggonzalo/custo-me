@@ -2,3 +2,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+$background-image-size: 12rem;
+$second-background-image-offset: calc($background-image-size / 2);
+
+body {
+  background-image: url("/assets/svg/background_ghost.svg"),
+    url("/assets/svg/background_ghost.svg");
+  @apply bg-purple-600;
+  background-position: 0 0,
+    $second-background-image-offset $second-background-image-offset;
+  background-repeat: repeat, repeat;
+  background-size: $background-image-size;
+  background-attachment: fixed;
+  animation: animatedBackground 5s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0,
+      $second-background-image-offset $second-background-image-offset;
+  }
+  to {
+    background-position: (-$background-image-size) (-$background-image-size),
+      ($second-background-image-offset + (-$background-image-size))
+        ($second-background-image-offset + (-$background-image-size));
+  }
+}

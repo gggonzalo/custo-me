@@ -11,49 +11,37 @@ export class FiltersService {
   constructor(private http: HttpClient) {}
 
   getFilters(): Observable<Filter[]> {
-    // TODO: Move this logic to a backend server
     return this.http.get<Character[]>('api/characters/characters.json').pipe(
       map((characters) => {
         const filters: Filter[] = [];
 
         for (const character of characters) {
-          for (const propertyName in character.properties) {
-            if (
-              Object.prototype.hasOwnProperty.call(
-                character.properties,
-                propertyName
-              )
-            ) {
-              const propertyOptions = character.properties[propertyName];
+          for (const property of character.properties) {
+            const filter = filters.find((f) => f.name === property.name);
 
-              const filter = filters.find((f) => f.name === propertyName);
+            if (filter) {
+              const filterOptions = filter.options;
 
-              if (filter) {
-                for (const option of propertyOptions) {
-                  const filterOptions = filter.options;
+              const filterOption = filter.options.find(
+                (fo) => fo.name === property.value
+              );
 
-                  const filterOption = filter.options.find(
-                    (fo) => fo.name === option
-                  );
-
-                  if (filterOption) {
-                    filterOption.count++;
-                  } else {
-                    filterOptions.push({
-                      name: option,
-                      count: 1,
-                    });
-                  }
-                }
-
-                continue;
+              if (filterOption) {
+                filterOption.count++;
+              } else {
+                filterOptions.push({
+                  name: property.value,
+                  count: 1,
+                });
               }
 
-              filters.push({
-                name: propertyName,
-                options: propertyOptions.map((po) => ({ name: po, count: 1 })),
-              });
+              continue;
             }
+
+            filters.push({
+              name: property.name,
+              options: [{ name: property.value, count: 1 }],
+            });
           }
         }
 

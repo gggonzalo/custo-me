@@ -8,13 +8,13 @@ import { Filter, FiltersFormValue } from '../models/Filters';
   templateUrl: './filters-form.component.html',
   styleUrls: ['./filters-form.component.scss'],
 })
-// TODO: Change name to FiltersForm
 export class FiltersFormComponent implements OnInit {
   @Input() filters!: Filter[];
-  public isOpen!: boolean;
+  @Input() formContainerClasses!: string[];
+  @Input() isClosable?: boolean = false;
+  @Input() closeButtonClasses?: string[] = [];
 
-  // TODO: See if we still need this. Maybe in the mobile layout
-  @Output() onHide = new EventEmitter();
+  @Output() onClose = new EventEmitter();
   @Output() onFiltersSelected = new EventEmitter<FiltersFormValue>();
 
   filtersForm!: FormGroup;
@@ -24,16 +24,15 @@ export class FiltersFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
 
-  handleFiltersFormSubmit(): void {
-    this.onFiltersSelected.emit(this.filtersForm.value);
-    this.onHide.emit();
-
-    this.reportSubmitToken$.next(null);
+  handleCloseButtonClick() {
+    this.onClose.emit();
   }
 
-  // TODO: Remove. Maybe use for mobile sidebar (form)
-  handleCancel() {
-    this.onHide.emit();
+  handleFiltersFormSubmit(): void {
+    this.onFiltersSelected.emit(this.filtersForm.value);
+    this.onClose.emit();
+
+    this.reportSubmitToken$.next(null);
   }
 
   ngOnInit(): void {

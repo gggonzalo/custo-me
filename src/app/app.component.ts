@@ -12,6 +12,9 @@ import { FiltersService } from './services/filters/filters.service';
 export class AppComponent {
   getFiltersTask$: Observable<Filter[]> = this.filtersService.getFilters();
 
+  filtersFormIsOpen: boolean = false;
+
+  // TODO: This might have to change if we are getting filters from local storage
   refreshCharactersToken$ = new BehaviorSubject<FiltersFormValue>({
     filteringOptions: {
       mutuallyInclusiveFilters: false,
@@ -32,6 +35,14 @@ export class AppComponent {
     private filtersService: FiltersService,
     private charactersService: CharactersService
   ) {}
+
+  handleFiltersFormOpen() {
+    this.filtersFormIsOpen = true;
+  }
+
+  handleFiltersFormClose() {
+    this.filtersFormIsOpen = false;
+  }
 
   handleFiltersSelected(filtersFormValue: FiltersFormValue) {
     this.charactersLoading = true;

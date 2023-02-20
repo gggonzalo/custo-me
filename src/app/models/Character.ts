@@ -1,5 +1,6 @@
-export interface Properties {
-  [name: string]: string[];
+export interface Property {
+  name: string;
+  value: string;
 }
 
 export interface Character {
@@ -7,5 +8,5 @@ export interface Character {
   show: string;
   image: string;
   bgColor: string;
-  properties: Properties;
+  properties: Property[];
 }
