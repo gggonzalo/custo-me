@@ -5,19 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CharacterCardComponent } from './character-card/character-card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
-import { CheckOptionComponent } from './check-option/check-option.component';
-import { FiltersModalComponent } from './filters-modal/filters-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FiltersSidebarComponent } from './filters-sidebar/filters-sidebar.component';
+import { FiltersFormComponent } from './filters-form/filters-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterCardComponent,
     CheckboxComponent,
-    CheckOptionComponent,
-    FiltersModalComponent,
-    FiltersSidebarComponent,
+    FiltersFormComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
   bootstrap: [AppComponent],

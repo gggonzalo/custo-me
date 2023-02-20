@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { BehaviorSubject, merge, Observable, of, switchMap, tap } from 'rxjs';
-import { Filter, FiltersFormValue, FiltersSelection } from '../models/Filters';
+import { Filter, FiltersFormValue } from '../models/Filters';
 
 @Component({
-  selector: 'app-filters-sidebar',
-  templateUrl: './filters-sidebar.component.html',
-  styleUrls: ['./filters-sidebar.component.scss'],
+  selector: 'app-filters-form',
+  templateUrl: './filters-form.component.html',
+  styleUrls: ['./filters-form.component.scss'],
 })
 // TODO: Change name to FiltersForm
-export class FiltersSidebarComponent implements OnInit {
+export class FiltersFormComponent implements OnInit {
   @Input() filters!: Filter[];
   public isOpen!: boolean;
 
@@ -31,7 +31,7 @@ export class FiltersSidebarComponent implements OnInit {
     this.reportSubmitToken$.next(null);
   }
 
-  // TODO: Remove. Maybe use for mobile sidebar/modal
+  // TODO: Remove. Maybe use for mobile sidebar (form)
   handleCancel() {
     this.onHide.emit();
   }
@@ -60,7 +60,7 @@ export class FiltersSidebarComponent implements OnInit {
       ),
     });
 
-    // Add validation and disable/re-enable on ['filteringOptions']['mutuallyInclusiveFilters']
+    // TODO: Add validation and disable/re-enable on ['filteringOptions']['mutuallyInclusiveFilters']
 
     this.canSubmitFormCheckTask = merge(
       this.reportSubmitToken$.pipe(
@@ -109,7 +109,5 @@ export class FiltersSidebarComponent implements OnInit {
         })
       )
     );
-
-    this.canSubmitFormCheckTask.subscribe(console.log);
   }
 }
