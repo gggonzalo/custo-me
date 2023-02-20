@@ -11,6 +11,7 @@ export class FiltersService {
   constructor(private http: HttpClient) {}
 
   getFilters(): Observable<Filter[]> {
+    // TODO: See how we can make just 1 request of the characters
     return this.http.get<Character[]>('api/characters/characters.json').pipe(
       map((characters) => {
         const filters: Filter[] = [];

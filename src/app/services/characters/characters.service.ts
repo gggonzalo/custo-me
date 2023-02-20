@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, iif, map, mergeMap, Observable, of } from 'rxjs';
+import { iif, map, mergeMap, Observable, of } from 'rxjs';
 import { Character } from 'src/app/models/Character';
 import {
   FiltersParams,
