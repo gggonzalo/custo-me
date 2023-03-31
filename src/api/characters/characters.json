@@ -92,7 +92,7 @@
   {
     "name": "Kim Possible",
     "show": "Kim Possible",
-    "image": "assets/img/characters/Kim_Possible.png",
+    "image": "assets/img/characters/Kim_Possible.jpeg",
     "bgColor": "bg-black",
     "properties": [
       { "name": "Hair", "value": "Red" },

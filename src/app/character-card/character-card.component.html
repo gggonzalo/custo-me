@@ -1,12 +1,12 @@
 <div
-  class="group transition hover:bg-purple-800 hover:bg-opacity-40 text-white rounded-md overflow-hidden cursor-pointer"
+  class="group transition hover:bg-purple-800 text-white rounded-md overflow-hidden cursor-pointer"
 >
   <div class="flex flex-col h-64">
     <div class="overflow-hidden grow">
       <img
         [src]="character.image"
         alt=""
-        class="transition scale-95 group-hover:scale-100 object-scale-down w-full h-full"
+        class="transition scale-100 group-hover:scale-105 object-cover w-full h-full"
       />
     </div>
     <div [ngClass]="[character.bgColor, 'p-2']">
