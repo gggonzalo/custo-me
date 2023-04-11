@@ -16,6 +16,8 @@ body {
   background-size: $background-image-size;
   background-attachment: fixed;
   animation: animatedBackground 5s linear infinite;
+
+  @apply font-roboto-condensed;
 }
 
 @keyframes animatedBackground {

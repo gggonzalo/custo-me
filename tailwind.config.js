@@ -25,6 +25,9 @@ module.exports = {
         "fade-in": "fadeIn 1s ease-out 0s",
         "wait-then-fade-in": "waitFadeIn 1s ease-out 0s, fadeIn 1s ease-out 1s",
       },
+      fontFamily: {
+        "roboto-condensed": ["Roboto Condensed", "sans-serif"],
+      },
     },
   },
   plugins: [],
